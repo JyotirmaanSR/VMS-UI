@@ -28,64 +28,63 @@
                 <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
             </ul>
         </nav>
+
+        <header class="topbar">
+            <div class="user-info">
+                <span ><i class="fas fa-envelope"></i></span>
+                <span style="margin-left: 20px; margin-right: 20px;"><i class="fas fa-bell"></i></span>
+                <img src="assets\images\user profile.jpg" alt="User">
+                <span>Andrew <br><small>Staff account</small></span>
+            </div>
+        </header>
         
         <!-- Main Content -->
         <div class="main-content">
-            <header class="topbar">
-                <div class="user-info">
-                    <span ><i class="fas fa-envelope"></i></span>
-                    <span style="margin-left: 20px; margin-right: 20px;"><i class="fas fa-bell"></i></span>
-                    <img src="assets\images\user profile.jpg" alt="User">
-                    <span>Andrew <br><small>Staff account</small></span>
-                </div>
-            </header>
             
             <div class="dashboard-section">
-                <button class="invite-btn" style="margin-left: 550px; margin-bottom: 30px;">+ Create Invite</button>
-                <div class="stats-cards">
-                    <div class="card"><h3>20</h3><p>Visitors Expected</p></div>
-                    <div class="card"><h3>4</h3><p>Completed Meetings</p></div>
-                    <div class="card"><h3>10</h3><p>Defaulted Visitors</p></div>
-                    <div class="card"><h3>10</h3><p>Pending Visits</p></div>
-                </div>
+                    <div class="stats-cards">
+                        <div class="card"><h3>{{ visitorsExpected }}</h3><p>Visitors Expected</p></div>
+                        <div class="card"><h3>{{ completedMeetings }}</h3><p>Completed Meetings</p></div>
+                        <div class="card"><h3>{{ defaultedVisitors }}</h3><p>Defaulted Visitors</p></div>
+                        <div class="card"><h3>{{ pendingVisits }}</h3><p>Pending Visits</p></div>                        
+                    </div>
                 
                 <div class="visitation-section">
                     <div class="visitation-history">
                         <h4>Visitation history</h4>
                         <button class="invite-btn">+ Create Invite</button>
-                        <table>
-                            <tr>
-                                <th>Name</th>
-                                <th>ID</th>
-                                <th>Email</th>
-                                <th>Due Date</th>
-                            </tr>
-                            <tr>
-                                <td>John Mathew</td>
-                                <td>AD20152</td>
-                                <td>johnmathewgmail.com</td>
-                                <td>14:00 02/21</td>
-                            </tr>
-                        </table>
+                        <ag-grid-angular
+                            style="width: 100%; height: 300px;"
+                            class="ag-theme-alpine"
+                            [rowData]="rowData"
+                            [columnDefs]="columnDefs"
+                            [defaultColDef]="defaultColDef"
+                            rowSelection="single">
+                        </ag-grid-angular>
                     </div>
-                    <div class="recent-visits">
+                    <div class="side-boxes-container">
+                    <div class="recent-visits" style="height: 180px; max-width: 450px;">
                         <h4>Recent Visitation</h4>
                         <div class="visitor-avatars">
-                            <img src="">
-                            <img src="">
-                            <img src="">
-                            <span>+6</span>
+                          <ng-container *ngFor="let visitor of visibleVisitors">
+                            <img [src]="visitor.imageUrl" alt="Visitor">
+                          </ng-container>
+                          <span *ngIf="hiddenCount > 0">+{{ hiddenCount }}</span>
                         </div>
+                      </div>
+                      <div class="notifications">
+                        <h3>
+                          Notifications <i class="fas fa-bell"></i>
+                        </h3>
+                        <ul>
+                          <li *ngFor="let note of notifications">
+                            {{ note.message }} - <span class="time">{{ note.time }}</span>
+                          </li>
+                        </ul>
+                      </div>
                     </div>
                 </div>
-                <div class="notifications">
-                    <h3>Notifications <i class="fas fa-bell"></i></h3>
-                    <ul>
-                        <li>John Mathew K - <span class="time">30 mins</span></li>
-                        <li>John Mathew K - <span class="time">02 hrs</span></li>
-                        <li>John Mathew K - <span class="time">04 hrs</span></li>
-                    </ul>
-                </div>
+                
             </div>
         </div>
     </div>
