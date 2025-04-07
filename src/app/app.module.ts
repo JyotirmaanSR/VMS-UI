@@ -11,6 +11,7 @@ import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { StaffManagementComponent } from './components/staff-management/staff-management.component';
 import { OrganizationProfileComponent } from './components/organization-profile/organization-profile.component';
+import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { OrganizationProfileComponent } from './components/organization-profile/
     EmployeeVisitorsLogbookComponent,
     DepartmentManagementComponent,
     StaffManagementComponent,
-    OrganizationProfileComponent
+    OrganizationProfileComponent,
+    VisitPurposemanagementComponent
   ],
   imports: [
     BrowserModule,
