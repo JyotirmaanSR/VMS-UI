@@ -14,29 +14,10 @@
 </head>
 <body>
     <div class="dashboard-container">
-        <!-- Sidebar -->
-        <nav class="sidebar">
-            <div class="sidebar-header">
-                <h2>VMS</h2>
-            </div>
-            <ul class="sidebar-menu">
-                <li class="active"><a href="#"><i class="fas fa-chart-line"></i> Overview</a></li>
-                <li><a href="#"><i class="fas fa-book"></i> Visitor’s Logbook</a></li>
-                <li><a href="#"><i class="fas fa-envelope"></i> Invitations</a></li>
-                <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
-                <li><a href="#"><i class="fas fa-building"></i> VMS</a></li>
-                <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-            </ul>
-        </nav>
-
-        <header class="topbar">
-            <div class="user-info">
-                <span ><i class="fas fa-envelope"></i></span>
-                <span style="margin-left: 20px; margin-right: 20px;"><i class="fas fa-bell"></i></span>
-                <img src="assets\images\user profile.jpg" alt="User">
-                <span>Andrew <br><small>Staff account</small></span>
-            </div>
-        </header>
+        <!-- Sidebar Component-->
+        <app-sidebar></app-sidebar>
+        <!-- Header Component-->
+        <app-header></app-header>
         
         <!-- Main Content -->
         <div class="main-content">
