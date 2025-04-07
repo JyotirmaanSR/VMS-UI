@@ -8,6 +8,7 @@ import { LoginFormComponent } from './components/login-form/login-form.component
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors-logbook/employee-visitors-logbook.component';
+import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors
     LoginFormComponent,
     HeaderComponent,
     SidebarComponent,
-    EmployeeVisitorsLogbookComponent
+    EmployeeVisitorsLogbookComponent,
+    DepartmentManagementComponent
   ],
   imports: [
     BrowserModule,
