@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  .dashboard {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f8f8f8;
+  }
+  
+  .sidebar {
+    width: 230px;
+    background-color: #fff;
+    border-right: 1px solid #eee;
+    padding: 1.5rem 1rem;
+  }
+  
+  .sidebar h2 {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+  }
+  
+  .sidebar li {
+    padding: 0.8rem 0;
+    font-size: 0.9rem;
+    cursor: pointer;
+    color: #555;
+  }
+  
+  .sidebar li.active {
+    font-weight: bold;
+    color: #000;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 1.5rem 2rem;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .user-info {
+    text-align: right;
+  }
+  
+  .user-info span {
+    font-weight: bold;
+  }
+  
+  .user-info small {
+    display: block;
+    font-size: 0.75rem;
+    color: #999;
+  }
+  
+  .stats {
+    margin: 2rem 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .stat-card {
+    background-color: #fff;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+  
+  .stat-card h3 {
+    font-size: 2rem;
+  }
+  
+  .stat-card p {
+    color: #777;
+    margin-top: 0.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .content {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .card {
+    background-color: #fff;
+    border-radius: 12px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+    flex: 1;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .card-header h4 {
+    margin-bottom: 1rem;
+  }
+  
+  .card button {
+    background-color: #222;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+  }
+  
+  th, td {
+    padding: 0.6rem;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+  
+  th {
+    color: #888;
+  }
+  
+  .avatars {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+  
+  .avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  

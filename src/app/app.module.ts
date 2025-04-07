@@ -9,6 +9,7 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors-logbook/employee-visitors-logbook.component';
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
+import { StaffManagementComponent } from './components/staff-management/staff-management.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { DepartmentManagementComponent } from './components/department-managemen
     HeaderComponent,
     SidebarComponent,
     EmployeeVisitorsLogbookComponent,
-    DepartmentManagementComponent
+    DepartmentManagementComponent,
+    StaffManagementComponent
   ],
   imports: [
     BrowserModule,
