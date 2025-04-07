@@ -7,6 +7,7 @@ import { EmployeeDashboardComponent } from './components/employee-dashboard/empl
 import { LoginFormComponent } from './components/login-form/login-form.component';
 import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors-logbook/employee-visitors-logbook.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     EmployeeDashboardComponent,
     LoginFormComponent,
     HeaderComponent,
-    SidebarComponent
+    SidebarComponent,
+    EmployeeVisitorsLogbookComponent
   ],
   imports: [
     BrowserModule,
