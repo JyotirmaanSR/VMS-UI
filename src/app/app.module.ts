@@ -10,6 +10,7 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors-logbook/employee-visitors-logbook.component';
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { StaffManagementComponent } from './components/staff-management/staff-management.component';
+import { OrganizationProfileComponent } from './components/organization-profile/organization-profile.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { StaffManagementComponent } from './components/staff-management/staff-ma
     SidebarComponent,
     EmployeeVisitorsLogbookComponent,
     DepartmentManagementComponent,
-    StaffManagementComponent
+    StaffManagementComponent,
+    OrganizationProfileComponent
   ],
   imports: [
     BrowserModule,

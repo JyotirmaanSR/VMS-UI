@@ -1,0 +1,127 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: #f8f9fa;
+  }
+  
+  .dashboard {
+    display: flex;
+  }
+/*   
+  .sidebar {
+    width: 220px;
+    background: #fff;
+    padding: 20px;
+    height: 100vh;
+    box-shadow: 2px 0 5px rgba(0,0,0,0.05);
+  }
+  
+  .sidebar h2 {
+    font-size: 16px;
+    margin-bottom: 30px;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .sidebar ul li {
+    padding: 10px 0;
+    color: #777;
+    cursor: pointer;
+  }
+  
+  .sidebar ul li.active,
+  .sidebar ul li:hover {
+    font-weight: bold;
+    color: #000;
+  } */
+  
+  .main {
+    flex: 1;
+    padding: 30px;
+  }
+  
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .invite-btn {
+    background: #333;
+    color: #fff;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
+  .user-info {
+    text-align: right;
+  }
+  
+  .user-info span {
+    display: block;
+    font-weight: bold;
+  }
+  
+  .profile-card {
+    background: #fff;
+    padding: 30px;
+    margin-top: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .profile-image {
+    width: 100px;
+    height: 100px;
+    background: #ccc;
+    border-radius: 50%;
+  }
+  
+  .profile-name h2 {
+    margin: 0;
+  }
+  
+  .profile-name p {
+    margin: 4px 0;
+    color: #666;
+  }
+  
+  .edit-button {
+    color: #333;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+  .profile-info {
+    margin-top: 30px;
+  }
+  
+  .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 6px;
+  }
+  
+  .info-row label {
+    color: #555;
+    font-weight: 500;
+  }
+  
+  .info-row span {
+    font-weight: 500;
+  }
+  
