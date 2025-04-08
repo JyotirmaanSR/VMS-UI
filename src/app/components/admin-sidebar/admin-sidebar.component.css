@@ -40,7 +40,8 @@
 .sidebar-menu li a i {
     margin-right: 10px;
 }
-.sidebar-menu li a:hover  {
+.sidebar-menu li a:hover, 
+.sidebar-menu .active a {
     background: #f0f0f0;
     color: #000;
 }

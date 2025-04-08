@@ -1,0 +1,133 @@
+/* Layout */
+.dashboard {
+    display: flex;
+    height: 100vh;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: #f9f9f9;
+    margin-left: 300px;
+    margin-top: 60px;
+  }
+  
+  /* Sidebar */
+  /* .sidebar {
+    width: 220px;
+    background: #222;
+    color: #fff;
+    padding: 20px;
+  }
+  .sidebar h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  .sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  .sidebar ul li {
+    margin: 10px 0;
+    cursor: pointer;
+  }
+  .sidebar ul li.active {
+    font-weight: bold;
+  } */
+  
+  /* Main Content */
+  .main {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+  }
+  
+  /* Top Bar */
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  .user-info span {
+    font-weight: bold;
+  }
+  .create-invite {
+    background: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  /* Stats Cards */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  .stat-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+  }
+  .stat-card h3 {
+    margin: 0;
+    font-size: 28px;
+    color: #444;
+  }
+  .stat-card p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #666;
+  }
+  
+  /* Card Containers */
+  .content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+  }
+  .card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  /* Visitation Card Header */
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  /* Avatars */
+  .avatars img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    margin-right: 8px;
+    object-fit: cover;
+  }
+  
+  /* AG Grid Overrides */
+  .ag-theme-alpine {
+    --ag-header-background-color: #f5f5f5;
+    --ag-row-hover-color: #eef;
+    --ag-odd-row-background-color: #fff;
+    --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --ag-font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  .ag-theme-alpine .ag-header-cell-label {
+    font-weight: 600;
+    color: #333;
+  }
+  .ag-theme-alpine .ag-cell {
+    padding: 10px;
+  }
+  

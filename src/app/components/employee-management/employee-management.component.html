@@ -1,0 +1,86 @@
+<!-- dashboard.component.html -->
+<div class="dashboard">
+    <!-- Sidebar -->
+    <!-- <aside class="sidebar">
+      <h2>NEM Insurance Plc</h2>
+      <ul>
+        <li class="active">Overview</li>
+        <li>Organization Profile</li>
+        <li>Department Management</li>
+        <li>Staff Management</li>
+        <li>Visit Purpose Management</li>
+        <li>Profile</li>
+        <li>Admins</li>
+        <li>VMS</li>
+        <li>Logout</li>
+      </ul>
+    </aside> -->
+  <!-- Sidebar Component-->
+  <app-admin-sidebar></app-admin-sidebar>
+  <!-- Header Component-->
+  <app-admin-header></app-admin-header>
+    <!-- Main Content -->
+    <main class="main">
+      <header class="topbar">
+        <button class="create-invite">+ Create Invite</button>
+        <div class="user-info">
+          <span>Andrew</span>
+          <small>Admin account</small>
+        </div>
+      </header>
+  
+      <!-- Stats Section -->
+      <div class="stats">
+        <div class="stat-card">
+          <h3>8</h3>
+          <p>Visitors Expected</p>
+        </div>
+        <div class="stat-card">
+          <h3>4</h3>
+          <p>Completed Meetings</p>
+        </div>
+        <div class="stat-card">
+          <h3>10</h3>
+          <p>Defaulted Visitors</p>
+        </div>
+        <div class="stat-card">
+          <h3>10</h3>
+          <p>Pending Visits</p>
+        </div>
+      </div>
+  
+      <!-- Content Section -->
+      <div class="content">
+        <!-- Visitation History using AG Grid -->
+        <div class="card visit-history">
+          <div class="card-header">
+            <h4>Visitation history</h4>
+            <button class="create-invite">+ Create Invite</button>
+          </div>
+  
+          <ag-grid-angular
+          style="width: 100%; height: 500px;"
+          class="ag-theme-alpine"
+          [rowData]="rowData"
+         [columnDefs]="columnDefs"
+         [pagination]="true"
+         [paginationPageSize]="10">
+         </ag-grid-angular>
+  
+        </div>
+  
+        <!-- Top Staffs Section -->
+        <div class="card top-staffs">
+          <h4>Top Staffs</h4>
+          <div class="avatars">
+            <img src="https://randomuser.me/api/portraits/women/1.jpg" />
+            <img src="https://randomuser.me/api/portraits/women/2.jpg" />
+            <img src="https://randomuser.me/api/portraits/women/3.jpg" />
+            <img src="https://randomuser.me/api/portraits/women/4.jpg" />
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  
