@@ -1,0 +1,78 @@
+<div class="container">
+  <app-admin-sidebar></app-admin-sidebar>
+  <!-- Header Component-->
+  <app-admin-header></app-admin-header>
+  
+    <!-- Main Content -->
+    <main class="main-content">
+      <!-- Top bar -->
+      <div class="top-bar">
+        <button class="invite-btn">+ Create Invite</button>
+  
+        <div class="top-controls">
+          <input type="text" placeholder="Search" class="search-input" />
+          <button class="search-btn">Search</button>
+          <div class="dropdown">▼</div>
+          <div class="calendar">📅 Today ▼</div>
+        </div>
+  
+        <div class="user-profile">
+          <span class="user-name">Andrew</span>
+          <small>Admin account</small>
+        </div>
+      </div>
+  
+      <!-- Department Section -->
+      <div class="department-section">
+        <div class="section-header">
+          <h3>Departments</h3>
+          <button class="create-btn">+ Create Department</button>
+        </div>
+  
+        <table class="dept-table">
+          <thead>
+            <tr>
+              <th>S/N</th>
+              <th>Department</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Accounting</td>
+              <td class="actions">
+                <span>👁️</span>
+                <span>❌</span>
+                <span>✏️</span>
+              </td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Sales</td>
+              <td class="actions">
+                <span>👁️</span>
+                <span>❌</span>
+                <span>✏️</span>
+              </td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>HR</td>
+              <td class="actions disabled">
+                <span>🙈</span>
+                <span>❌</span>
+                <span>✏️</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+  
+        <div class="pagination">
+          <span>1/1</span>
+          <button>Next</button>
+        </div>
+      </div>
+    </main>
+  </div>
+  
