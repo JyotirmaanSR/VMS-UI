@@ -1,20 +1,7 @@
 <div class="dashboard">
-    <!-- Sidebar -->
-    <!-- <aside class="sidebar">
-      <h2>NEM Insurance Plc</h2>
-      <ul>
-        <li>Overview</li>
-        <li>Organization Profile</li>
-        <li>Department Management</li>
-        <li>Staff Management</li>
-        <li class="active">Visit Purpose Management</li>
-        <li>Profile</li>
-        <li>Admins</li>
-        <li>VMS</li>
-        <li>Logout</li>
-      </ul>
-    </aside> -->
-  
+  <app-admin-sidebar></app-admin-sidebar>
+  <!-- Header Component-->
+  <app-admin-header></app-admin-header>
     <!-- Main Content -->
     <main class="main">
       <div class="top-controls">
@@ -30,12 +17,23 @@
           <h3>Visitor Purposes</h3>
           <button class="btn">➕ Create Purpose</button>
         </div>
-  
-        <table class="purpose-table">
+        <ag-grid-angular
+          style="width: 100%; height: 500px;"
+          class="ag-theme-alpine"
+          [rowData]="rowData"
+         [columnDefs]="columnDefs"
+         [pagination]="true"
+         [paginationPageSize]="10">
+         </ag-grid-angular>
+        
+
+        <!-- <table class="purpose-table">
           <thead>
             <tr>
-              <th>👤 S/N</th>
-              <th>🧾 Purpose</th>
+              <th> S/N</th>
+              <th> Name</th>
+              <th> Date</th>
+              <th> Purpose</th>
               <th>Actions</th>
             </tr>
           </thead>
@@ -44,9 +42,9 @@
               <td>1</td>
               <td>Personal</td>
               <td>
-                <span class="action">👁️</span>
-                <span class="action">❌</span>
-                <span class="action">✏️</span>
+                <span class="action"></span>
+                <span class="action"></span>
+                <span class="action"></span>
               </td>
             </tr>
             <tr>
@@ -59,7 +57,7 @@
               </td>
             </tr>
           </tbody>
-        </table>
+        </table> -->
   
         <div class="pagination">
           <span>1/23</span>

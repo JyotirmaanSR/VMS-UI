@@ -41,6 +41,7 @@ body {
   .main {
     flex: 1;
     padding: 30px;
+    margin-left: 300px;
   }
   
   .top-controls {
@@ -93,7 +94,7 @@ body {
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   }
   
-  .purpose-table {
+  /* .purpose-table {
     width: 100%;
     border-collapse: collapse;
   }
@@ -109,7 +110,7 @@ body {
     margin-right: 10px;
     cursor: pointer;
     font-size: 16px;
-  }
+  } */
   
   .pagination {
     display: flex;
@@ -118,4 +119,21 @@ body {
     margin-top: 20px;
     gap: 10px;
   }
-  
+    /* AG Grid Overrides */
+    .ag-theme-alpine {
+      --ag-header-background-color: #f5f5f5;
+      --ag-row-hover-color: #eef;
+      --ag-odd-row-background-color: #fff;
+      --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      --ag-font-size: 14px;
+      border-radius: 8px;
+      border: none;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+    .ag-theme-alpine .ag-header-cell-label {
+      font-weight: 600;
+      color: #333;
+    }
+    .ag-theme-alpine .ag-cell {
+      padding: 10px;
+    }
