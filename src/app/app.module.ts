@@ -13,7 +13,7 @@ import { VisitPurposemanagementComponent } from './components/visit-purposemanag
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
 import { EmployeeManagementtComponent } from './components/employee-management/employee-managementt.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms'; //forms module
 
 @NgModule({
   declarations: [
