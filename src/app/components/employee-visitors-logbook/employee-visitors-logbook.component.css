@@ -12,14 +12,17 @@ body {
     gap: 20px;
     font-family: 'Poppins', sans-serif;
     padding: 20px;
+    margin-left: 260px;
+    margin-top: 120px;
   }
   
   .filter-sidebar {
-    width: 180px;
+    width: 240px;
     background: #fff;
-    padding: 20px;
+    padding: 65px;
     border-radius: 10px;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    height: 500px;
   }
   
   .filter-sidebar h4 {
@@ -43,6 +46,7 @@ body {
   .logbook-content {
     flex: 1;
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 20px;
   }
@@ -59,6 +63,8 @@ body {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+    margin-bottom: 120px;
+    
   }
   
   .search-box input {
@@ -66,6 +72,7 @@ body {
     border: none;
     outline: none;
     width: 250px;
+    
   }
   
   .search-box button {
@@ -78,8 +85,10 @@ body {
   
   .actions {
     display: flex;
-    gap: 20px;
+    gap: 40px;
     align-items: center;
+    margin-left: 220px;
+    margin-bottom: 120px;
   }
   
   .dropdown, .date-picker {
@@ -92,9 +101,11 @@ body {
   }
   
   .ag-theme-alpine.ag-custom {
-    --ag-font-size: 14px;
-    --ag-row-height: 60px;
-    border-radius: 12px;
+    --ag-font-size: 16px;
+    --ag-row-height: 35px;
+    --ag-header-background-color: #e0e0e0;
+    --ag-header-foreground-color: #000000;
+    /* border-radius: 6px; */
     overflow: hidden;
     border: 1px solid #eee;
   }
@@ -112,5 +123,24 @@ body {
     border: none;
     border-radius: 6px;
     cursor: pointer;
+  }
+  
+  /* Full-width AG Grid */
+.ag-theme-alpine.ag-custom {
+    width: 100%;
+  }
+  
+  /* Updated dropdown and calendar */
+  .dropdown, .date-picker {
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    padding: 10px 15px;
+    font-size: 14px;
+    min-width: 150px;
+  }
+  
+  .date-picker {
+    width: 160px;
   }
   

@@ -12,7 +12,6 @@ const routes: Routes = [
     path:'',
     component:EmployeeDashboardComponent
   },
-
   {
     path:'dashboard',
     component:EmployeeDashboardComponent
