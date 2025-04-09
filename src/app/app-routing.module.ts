@@ -5,8 +5,11 @@ import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors
 import { EmployeeManagementtComponent } from './components/employee-management/employee-managementt.component';
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
+import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 
 const routes: Routes = [
+
+  // Employee Routings
 
   {
     path:'',
@@ -20,7 +23,13 @@ const routes: Routes = [
     path:'visitorlogbook',
     component:EmployeeVisitorsLogbookComponent
   },
+  {
+    path:'invitations',
+    component:EmployeeInvitationsComponent
+  },
 
+
+  
   // admin routing
   {
     path:'admin-employee-management',
