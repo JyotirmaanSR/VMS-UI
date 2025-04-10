@@ -16,6 +16,7 @@ import { EmployeeManagementtComponent } from './components/employee-management/e
 import { FormsModule } from '@angular/forms';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 @NgModule({
@@ -32,7 +33,8 @@ import { EmployeeProfileComponent } from './components/employee-profile/employee
     AdminSidebarComponent,
     EmployeeManagementtComponent,
     EmployeeInvitationsComponent,
-    EmployeeProfileComponent
+    EmployeeProfileComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

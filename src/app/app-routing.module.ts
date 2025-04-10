@@ -7,6 +7,8 @@ import { DepartmentManagementComponent } from './components/department-managemen
 import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { LoginFormComponent } from './components/login-form/login-form.component';
 
 const routes: Routes = [
 
@@ -32,6 +34,11 @@ const routes: Routes = [
     path:'employeeprofile',
     component:EmployeeProfileComponent
   },
+  {
+    path: 'employeelogout',
+    component: LogoutComponent
+  },
+  { path: 'login', component: LoginFormComponent },
 
 
   
