@@ -6,6 +6,7 @@ import { EmployeeManagementtComponent } from './components/employee-management/e
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
+import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 
 const routes: Routes = [
 
@@ -26,6 +27,10 @@ const routes: Routes = [
   {
     path:'invitations',
     component:EmployeeInvitationsComponent
+  },
+  {
+    path:'employeeprofile',
+    component:EmployeeProfileComponent
   },
 
 

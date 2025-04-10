@@ -15,6 +15,7 @@ import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.
 import { EmployeeManagementtComponent } from './components/employee-management/employee-managementt.component';
 import { FormsModule } from '@angular/forms';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
+import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import { EmployeeInvitationsComponent } from './components/employee-invitations/
     AdminHeaderComponent,
     AdminSidebarComponent,
     EmployeeManagementtComponent,
-    EmployeeInvitationsComponent
+    EmployeeInvitationsComponent,
+    EmployeeProfileComponent
   ],
   imports: [
     BrowserModule,
