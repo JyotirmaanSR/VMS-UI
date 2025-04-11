@@ -38,7 +38,10 @@ const routes: Routes = [
     path: 'employeelogout',
     component: LogoutComponent
   },
-  { path: 'login', component: LoginFormComponent },
+  { 
+    path: 'login', 
+    component: LoginFormComponent 
+  },
 
 
   
