@@ -17,6 +17,10 @@ import { FormsModule } from '@angular/forms';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
+import { ReceptionistsDashboardComponent } from './components/receptionists-dashboard/receptionists-dashboard.component';
+import { ReceptionistsProfileComponent } from './components/receptionists-profile/receptionists-profile.component';
+import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
+import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
 
 
 @NgModule({
@@ -34,7 +38,11 @@ import { LogoutComponent } from './components/logout/logout.component';
     EmployeeManagementtComponent,
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
-    LogoutComponent
+    LogoutComponent,
+    ReceptionistsDashboardComponent,
+    ReceptionistsProfileComponent,
+    ReceptionistsSidebarComponent,
+    ReceptionistsHeaderComponent
   ],
   imports: [
     BrowserModule,

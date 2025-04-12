@@ -9,15 +9,35 @@ import { EmployeeInvitationsComponent } from './components/employee-invitations/
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
 import { LoginFormComponent } from './components/login-form/login-form.component';
+import { ReceptionistsDashboardComponent } from './components/receptionists-dashboard/receptionists-dashboard.component';
+import { ReceptionistsProfileComponent } from './components/receptionists-profile/receptionists-profile.component';
 
 const routes: Routes = [
 
+
+  // Login Route
+  {
+    path: '',
+    component: LoginFormComponent
+  },
+
+
+
+  //Reception Routing
+  {
+    path: 'receptiondashboard',
+    component: ReceptionistsDashboardComponent
+  },
+  {
+    path: 'receptionprofile',
+    component: ReceptionistsProfileComponent
+  },
+
+
+
+
   // Employee Routings
 
-  {
-    path:'',
-    component:EmployeeDashboardComponent
-  },
   {
     path:'dashboard',
     component:EmployeeDashboardComponent
