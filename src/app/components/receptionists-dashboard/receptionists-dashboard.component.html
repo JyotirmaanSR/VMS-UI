@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Dashboard</title>
+    <title>Receptionists Dashboard</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -15,9 +15,9 @@
 <body>
     <div class="dashboard-container">
         <!-- Sidebar Component-->
-        <app-sidebar></app-sidebar>
+        <app-receptionists-sidebar></app-receptionists-sidebar>
         <!-- Header Component-->
-        <app-header></app-header>
+        <app-receptionists-header></app-receptionists-header>
         
         <!-- Main Content -->
         <div class="main-content">
@@ -33,6 +33,7 @@
                 <div class="visitation-section">
                     <div class="visitation-history">
                         <h4>Visitation history</h4>
+                        <button class="invite-btn">+ Create Invite</button>
                         <ag-grid-angular
                             style="width: 100%; height: 300px;"
                             class="ag-theme-alpine"
