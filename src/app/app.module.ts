@@ -9,11 +9,12 @@ import { HeaderComponent } from './components/header/header.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors-logbook/employee-visitors-logbook.component';
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
-import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
-import { EmployeeManagementtComponent } from './components/employee-management/employee-managementt.component';
 import { FormsModule } from '@angular/forms';
+import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
+import { AdminEmployManagementComponent } from './components/admin-employ-management/admin-employ-management.component';
+import { ReportGeneraterComponent } from './components/report-generater/report-generater.component';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
@@ -22,6 +23,7 @@ import { ReceptionistsProfileComponent } from './components/receptionists-profil
 import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
 import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
 import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
+
 
 
 @NgModule({
@@ -33,9 +35,11 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     SidebarComponent,
     EmployeeVisitorsLogbookComponent,
     DepartmentManagementComponent,
-    VisitPurposemanagementComponent,
     AdminHeaderComponent,
     AdminSidebarComponent,
+    AdminDashboardComponent,
+    AdminEmployManagementComponent,
+    ReportGeneraterComponent,
     EmployeeManagementtComponent,
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
@@ -43,8 +47,13 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     ReceptionistsDashboardComponent,
     ReceptionistsProfileComponent,
     ReceptionistsSidebarComponent,
+<<<<<<< HEAD
     ReceptionistsHeaderComponent,
     AddVisitorFormComponent
+=======
+    ReceptionistsHeaderComponent
+
+>>>>>>> 776c45611e761fdc58abdfafa238028ffe5df134
   ],
   imports: [
     BrowserModule,
