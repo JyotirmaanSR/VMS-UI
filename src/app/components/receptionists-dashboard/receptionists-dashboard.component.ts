@@ -50,9 +50,9 @@ rowData = [
     dueDate: '11:45 02/23'
   },
   {
-    name: 'Priya Verma',
+    name: 'Priya Rathod',
     id: 'AD20155',
-    email: 'priya.verma@example.com',
+    email: 'priya.rathod@example.com',
     dueDate: '16:10 02/23'
   },
   {
