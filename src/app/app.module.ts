@@ -21,6 +21,7 @@ import { ReceptionistsDashboardComponent } from './components/receptionists-dash
 import { ReceptionistsProfileComponent } from './components/receptionists-profile/receptionists-profile.component';
 import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
 import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
+import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
 
 
 @NgModule({
@@ -42,7 +43,8 @@ import { ReceptionistsHeaderComponent } from './components/receptionists-header/
     ReceptionistsDashboardComponent,
     ReceptionistsProfileComponent,
     ReceptionistsSidebarComponent,
-    ReceptionistsHeaderComponent
+    ReceptionistsHeaderComponent,
+    AddVisitorFormComponent
   ],
   imports: [
     BrowserModule,

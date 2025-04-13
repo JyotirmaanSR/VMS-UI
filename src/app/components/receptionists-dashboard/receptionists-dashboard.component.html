@@ -33,7 +33,8 @@
                 <div class="visitation-section">
                     <div class="visitation-history">
                         <h4>Visitation history</h4>
-                        <button class="invite-btn">+ Create Invite</button>
+                        <button class="invite-btn" (click)="inviteForm.showForm()">+ Add Visitor</button>
+                        <app-add-visitor-form #inviteForm></app-add-visitor-form>
                         <ag-grid-angular
                             style="width: 100%; height: 300px;"
                             class="ag-theme-alpine"
