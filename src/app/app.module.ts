@@ -40,7 +40,7 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     AdminDashboardComponent,
     AdminEmployManagementComponent,
     ReportGeneraterComponent,
-    EmployeeManagementtComponent,
+   
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
     LogoutComponent,

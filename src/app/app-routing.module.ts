@@ -6,7 +6,6 @@ import { DepartmentManagementComponent } from './components/department-managemen
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEmployManagementComponent } from './components/admin-employ-management/admin-employ-management.component';
 import { ReportGeneraterComponent } from './components/report-generater/report-generater.component';
-import { VisitPurposemanagementComponent } from './components/visit-purposemanagement/visit-purposemanagement.component';
 import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
 import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
 import { LogoutComponent } from './components/logout/logout.component';
