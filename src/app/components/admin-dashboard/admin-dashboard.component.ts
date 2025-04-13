@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { ColDef, ColGroupDef } from 'ag-grid-community';
 
 @Component({
-  selector: 'app-employee-management',
-  templateUrl: './employee-management.component.html',
-  styleUrls: ['./employee-management.component.css']
+  selector: 'app-admin-dashboard',
+  templateUrl: './admin-dashboard.component.html',
+  styleUrls: ['./admin-dashboard.component.css']
 })
-export class EmployeeManagementtComponent {
+export class AdminDashboardComponent {
   columnDefs =  [
     { field: 'name', headerName: 'Name', sortable: true, filter: true },
     { field: 'id', headerName: 'ID', sortable: true, filter: true},

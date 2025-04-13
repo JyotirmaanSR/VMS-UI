@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-department-management',
-  templateUrl: './department-management.component.html',
-  styleUrls: ['./department-management.component.css']
+  selector: 'app-admin-employ-management',
+  templateUrl: './admin-employ-management.component.html',
+  styleUrls: ['./admin-employ-management.component.css']
 })
-export class DepartmentManagementComponent {
+export class AdminEmployManagementComponent {
   columnDefs =  [
     { field: 'name', headerName: 'Name', sortable: true, filter: true },
     { field: 'id', headerName: 'ID', sortable: true, filter: true},
@@ -64,4 +64,4 @@ export class DepartmentManagementComponent {
     }
   ]; 
 
-}  
+}
