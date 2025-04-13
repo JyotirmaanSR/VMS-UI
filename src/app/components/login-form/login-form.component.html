@@ -15,24 +15,24 @@
         <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 20px;">Sign In</h2>
         <p style="color: rgb(151, 151, 151); font-size: 18px; font-weight: 600; margin-bottom: 40px;">Enter your <a style="color: rgb(151, 151, 151); text-decoration: underline;">username</a> and <a style="color: rgb(151, 151, 151); text-decoration: underline;">password</a></p>
         <div class="form-box">
-            <form>
+            <form (ngSubmit)="onLogin()">
                 <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
                     <span class="icon" style="margin-left: 25px;"><i class="fas fa-user"></i></span>
-                    <input type="text" placeholder="Full Name" style="padding: 5px; margin-left: 15px;" required>
+                    <input type="text" placeholder="Username" [(ngModel)]="username" name="username" style="padding: 5px; margin-left: 15px;" required />
                 </div>
 
                 <div class="input-group" style="margin-bottom: 20px;">
                     <span class="icon" style="margin-left: 25px;"><i class="fa fa-envelope"></i></span>
-                    <input type="email" placeholder="Email Address" style="padding: 5px; margin-left: 15px;" required>
+                    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" style="padding: 5px; margin-left: 15px;" required />
                 </div>
 
                 <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
                     <span class="icon" style="margin-left: 25px;"><i class="fa fa-user-tag"></i></span>
-                    <select required style="padding: 5px; margin-left: 15px; border: none; background: transparent; outline: none; flex: 1;">
-                        <option value="" disabled selected>Select Role</option>
+                    <select [(ngModel)]="selectedRole" name="role" style="padding: 5px; margin-left: 15px; border: none; background: transparent; outline: none; flex: 1;" required>
                         <option value="admin">Admin</option>
                         <option value="employee">Employee</option>
-                    </select>
+                        <option value="reception">Receptionist</option>
+                      </select>
                 </div>
                 
                 <div class="remember-me" style="margin-bottom: 40px;">
@@ -44,7 +44,6 @@
             </form>
         </div>
     </div>
-    <!-- this is admin name -->
 
 </body>
 </html>

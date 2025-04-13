@@ -11,11 +11,17 @@ import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
-
 import { FormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEmployManagementComponent } from './components/admin-employ-management/admin-employ-management.component';
 import { ReportGeneraterComponent } from './components/report-generater/report-generater.component';
+import { EmployeeInvitationsComponent } from './components/employee-invitations/employee-invitations.component';
+import { EmployeeProfileComponent } from './components/employee-profile/employee-profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ReceptionistsDashboardComponent } from './components/receptionists-dashboard/receptionists-dashboard.component';
+import { ReceptionistsProfileComponent } from './components/receptionists-profile/receptionists-profile.component';
+import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
+import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
 
 
 
@@ -33,8 +39,15 @@ import { ReportGeneraterComponent } from './components/report-generater/report-g
     AdminDashboardComponent,
     AdminEmployManagementComponent,
     ReportGeneraterComponent,
-   
-   
+    EmployeeManagementtComponent,
+    EmployeeInvitationsComponent,
+    EmployeeProfileComponent,
+    LogoutComponent,
+    ReceptionistsDashboardComponent,
+    ReceptionistsProfileComponent,
+    ReceptionistsSidebarComponent,
+    ReceptionistsHeaderComponent
+
   ],
   imports: [
     BrowserModule,

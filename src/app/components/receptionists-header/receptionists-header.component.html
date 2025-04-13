@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar</title>
+    <title>header</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -13,18 +13,14 @@
     
 </head>
 <body>
-    <nav class="sidebar">
-        <div class="sidebar-header">
-            <h2>VMS</h2>
+    <header class="topbar">
+        <div class="user-info">
+            <span ><i class="fas fa-envelope"></i></span>
+            <span style="margin-left: 20px; margin-right: 20px;"><i class="fas fa-bell"></i></span>
+            <img src="assets\images\user profile.jpg" alt="User">
+            <span>Seema <br><small>Reception account</small></span>
         </div>
-        <ul class="sidebar-menu">
-            <li class="active"><a href="/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-            <li><a href="/visitorlogbook"><i class="fas fa-book"></i> Visitor’s Logbook</a></li>
-            <li><a href="/invitations"><i class="fas fa-envelope"></i> Invitations</a></li>
-            <li><a href="/employeeprofile"><i class="fas fa-user"></i> Profile</a></li>
-            <li ><a href="#" (click)="openLogoutModal($event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
-        </ul>
-    </nav>
-    <app-logout #logoutModal></app-logout>
+    </header>
+    
 </body>
 </html>
