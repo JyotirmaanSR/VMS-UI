@@ -22,6 +22,7 @@ import { ReceptionistsDashboardComponent } from './components/receptionists-dash
 import { ReceptionistsProfileComponent } from './components/receptionists-profile/receptionists-profile.component';
 import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
 import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
+import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
 
 
 
@@ -46,8 +47,13 @@ import { ReceptionistsHeaderComponent } from './components/receptionists-header/
     ReceptionistsDashboardComponent,
     ReceptionistsProfileComponent,
     ReceptionistsSidebarComponent,
+<<<<<<< HEAD
+    ReceptionistsHeaderComponent,
+    AddVisitorFormComponent
+=======
     ReceptionistsHeaderComponent
 
+>>>>>>> 776c45611e761fdc58abdfafa238028ffe5df134
   ],
   imports: [
     BrowserModule,

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { AddVisitorFormComponent } from '../add-visitor-form/add-visitor-form.component';
 
 @Component({
   selector: 'app-receptionists-dashboard',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./receptionists-dashboard.component.css']
 })
 export class ReceptionistsDashboardComponent {
+  @ViewChild('inviteForm') inviteForm!: AddVisitorFormComponent;
+
 //Stat Cards
 visitorsExpected = 20;
 completedMeetings = 4;
@@ -108,4 +111,11 @@ notifications = [
   { message: 'John Mathew K', time: '02 hrs' },
   { message: 'John Mathew K', time: '04 hrs' }
 ];
+
+showForm: boolean = false;
+
+toggleForm() {
+  this.showForm = !this.showForm;
+}
+
 }
