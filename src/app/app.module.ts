@@ -39,7 +39,7 @@ import { ReceptionistsHeaderComponent } from './components/receptionists-header/
     AdminDashboardComponent,
     AdminEmployManagementComponent,
     ReportGeneraterComponent,
-    EmployeeManagementtComponent,
+   
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
     LogoutComponent,
