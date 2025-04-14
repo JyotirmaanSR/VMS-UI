@@ -22,8 +22,9 @@
             <li><a href="/admin-department-management"><i class="fas fa-book"></i> Department Mmanagement</a></li>
             <li><a href="/EmployeeDashboardComponent"><i class="fas fa-user"></i> Employee Management </a></li>
             <li><a href="/adminreport"><i class="fas fa-building"></i>Report</a></li>
-            <li><a href="/logout"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li><a href="#" (click)="openLogoutModal($event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
         </ul>
     </nav>
+    <app-logout #logoutModal></app-logout>
 </body>
 </html>

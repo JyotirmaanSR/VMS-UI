@@ -6,6 +6,14 @@ import { Component , EventEmitter, Output} from '@angular/core';
   styleUrls: ['./add-visitor-form.component.css']
 })
 export class AddVisitorFormComponent {
+  employeeList: string[] = [
+    'John Doe',
+    'Jane Smith',
+    'Alice Johnson',
+    'Michael Lee',
+    'David Brown'
+  ];
+  
   isFormVisible = false; // Modal visibility flag
 
   formData = {

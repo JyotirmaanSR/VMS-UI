@@ -8,6 +8,11 @@
       font-family: 'Segoe UI', sans-serif;
       padding: 20px;
       margin-left: 300px;
+      
+    }
+
+    .contents{
+      margin-top: 80px;
     }
 
     h2 {
@@ -86,6 +91,7 @@
 <body>
   <app-admin-header></app-admin-header>
   <app-admin-sidebar></app-admin-sidebar>
+  <div class="contents">
   <h2>Reports</h2>
 
   <div class="filters">
@@ -115,6 +121,7 @@
       [paginationPageSize]="10">
     </ag-grid-angular>
   </div>
+</div>
 
 </body>
 </html>

@@ -40,20 +40,16 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     AdminDashboardComponent,
     AdminEmployManagementComponent,
     ReportGeneraterComponent,
-   
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
     LogoutComponent,
     ReceptionistsDashboardComponent,
     ReceptionistsProfileComponent,
     ReceptionistsSidebarComponent,
-<<<<<<< HEAD
     ReceptionistsHeaderComponent,
-    AddVisitorFormComponent
-=======
+    AddVisitorFormComponent,
     ReceptionistsHeaderComponent
 
->>>>>>> 776c45611e761fdc58abdfafa238028ffe5df134
   ],
   imports: [
     BrowserModule,
