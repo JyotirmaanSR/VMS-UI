@@ -23,6 +23,8 @@ import { ReceptionistsProfileComponent } from './components/receptionists-profil
 import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
 import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
 import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
+import { CreateDepartmentFormComponent } from './components/create-department-form/create-department-form.component';
+import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
 
 
 
@@ -48,7 +50,9 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     ReceptionistsSidebarComponent,
     ReceptionistsHeaderComponent,
     AddVisitorFormComponent,
-    ReceptionistsHeaderComponent
+    ReceptionistsHeaderComponent,
+    CreateDepartmentFormComponent,
+    CreateEmployeeFormComponent
 
   ],
   imports: [

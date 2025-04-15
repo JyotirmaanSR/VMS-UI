@@ -6,6 +6,17 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-employ-management.component.css']
 })
 export class AdminEmployManagementComponent {
+  showForm: boolean = false;
+
+  openForm() {
+    this.showForm = true;
+  }
+  
+  closeForm() {
+    this.showForm = false;
+  }
+  
+
   columnDefs =  [
     { field: 'name', headerName: 'Name', sortable: true, filter: true },
     { field: 'id', headerName: 'ID', sortable: true, filter: true},

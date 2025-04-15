@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="modal-overlay" (click)="closeModal()" *ngIf="showForm">
+        <div class="modal-content" (click)="$event.stopPropagation()">
+          <h3>Create Department</h3>
+          <form>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" />
+              </div>
+              <div class="form-group">
+                <label>Phone</label>
+                <input type="tel" />
+              </div>
+            </div>
+      
+            <div class="form-row">
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" />
+              </div>
+              <div class="form-group">
+                <label>Department</label>
+                <select>
+                  <option *ngFor="let dept of departments">{{ dept }}</option>
+                </select>
+              </div>
+            </div>
+      
+            <div class="form-actions">
+              <button type="button" class="submit-btn">Submit</button>
+              <button type="button" class="cancel-btn" (click)="closeModal()">Cancel</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      
+</body>
+</html>
