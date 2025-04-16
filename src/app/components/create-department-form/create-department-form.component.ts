@@ -8,7 +8,7 @@ import { Component } from '@angular/core';
 export class CreateDepartmentFormComponent {
   showForm = false;
 
-  departments: string[] = ['Accounting', 'Finance', 'HR', 'IT'];
+  // departments: string[] = ['Accounting', 'Finance', 'HR', 'IT'];
 
   openModal() {
     this.showForm = true;
