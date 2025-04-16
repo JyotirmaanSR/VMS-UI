@@ -7,38 +7,57 @@
 </head>
 <body>
     <!-- BACKDROP -->
-<div class="modal-backdrop" *ngIf="isFormVisible">
-    <!-- MODAL -->
-    <div class="modal-content">
-      <div class="invite-form">
-        <h3>Add Visitor</h3>
-        <form (ngSubmit)="submitForm()">
-          <label for="photo">Photo</label>
-          <input type="file" id="photo" name="photo">
-  
-          <label for="name">Name</label>
-          <input type="text" id="name" [(ngModel)]="formData.name" name="name" required>
-  
-          <label for="phone">Phone</label>
-          <input type="tel" id="phone" [(ngModel)]="formData.phone" name="phone" required>
-  
-          <label for="email">Email</label>
-          <input type="email" id="email" [(ngModel)]="formData.email" name="email" required>
-  
-          <label for="purpose">Purpose</label>
-          <input type="text" id="purpose" [(ngModel)]="formData.purpose" name="purpose" required>
-  
-          <label for="employee">Employee to Meet</label>
-          <input type="text" id="employee" [(ngModel)]="formData.employee" name="employee" required>
-  
-          <div class="button-group">
-            <button type="submit">Submit</button>
-            <button type="button" (click)="closeForm()">Cancel</button>
-          </div>
-        </form>
+    <div class="modal-backdrop" *ngIf="isFormVisible">
+      <!-- MODAL -->
+      <div class="modal-content">
+        <div class="invite-form">
+          <h3>Create Invite</h3>
+          <form (ngSubmit)="submitForm()">
+            <div class="form-row">
+              <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" [(ngModel)]="formData.name" name="name" required>
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" [(ngModel)]="formData.phone" name="phone" required>
+              </div>
+            </div>
+    
+            <div class="form-row">
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" [(ngModel)]="formData.email" name="email" required>
+              </div>
+              <div class="form-group">
+                <label for="purpose">Purpose</label>
+                <input type="text" id="purpose" [(ngModel)]="formData.purpose" name="purpose" required>
+              </div>
+            </div>
+    
+            <div class="form-row">
+              <div class="form-group">
+                <label for="employee">Employee to Meet</label>
+                <select id="employee" [(ngModel)]="formData.employee" name="employee" required>
+                  <option value="" disabled selected>Select employee</option>
+                  <option *ngFor="let emp of employeeList" [value]="emp">{{ emp }}</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="photo">Photo</label>
+                <input type="file" id="photo" name="photo">
+              </div>
+            </div>
+    
+            <div class="button-group">
+              <button type="submit">Submit</button>
+              <button type="button" (click)="closeForm()">Cancel</button>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
-  </div>
+    
   
       
 </body>
