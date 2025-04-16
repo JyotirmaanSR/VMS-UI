@@ -23,6 +23,8 @@ import { ReceptionistsProfileComponent } from './components/receptionists-profil
 import { ReceptionistsSidebarComponent } from './components/receptionists-sidebar/receptionists-sidebar.component';
 import { ReceptionistsHeaderComponent } from './components/receptionists-header/receptionists-header.component';
 import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
+import { CreateDepartmentFormComponent } from './components/create-department-form/create-department-form.component';
+import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
 
 
 
@@ -40,20 +42,18 @@ import { AddVisitorFormComponent } from './components/add-visitor-form/add-visit
     AdminDashboardComponent,
     AdminEmployManagementComponent,
     ReportGeneraterComponent,
-   
     EmployeeInvitationsComponent,
     EmployeeProfileComponent,
     LogoutComponent,
     ReceptionistsDashboardComponent,
     ReceptionistsProfileComponent,
     ReceptionistsSidebarComponent,
-<<<<<<< HEAD
     ReceptionistsHeaderComponent,
-    AddVisitorFormComponent
-=======
+    AddVisitorFormComponent,
     ReceptionistsHeaderComponent
-
->>>>>>> 776c45611e761fdc58abdfafa238028ffe5df134
+    ReceptionistsHeaderComponent,
+    CreateDepartmentFormComponent,
+    CreateEmployeeFormComponent
   ],
   imports: [
     BrowserModule,

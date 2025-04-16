@@ -4,7 +4,13 @@
   <meta charset="UTF-8">
   <title>Departments</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <app-admin-header></app-admin-header>
 <app-admin-sidebar></app-admin-sidebar>
@@ -12,8 +18,10 @@
   <div class="card">
     <div class="card-header">
       <h2>Departments</h2>
-      <button class="create-btn" id="openModalBtn"><i class="fas fa-plus"></i> Create Department</button>
+      <button class="create-btn" (click)="createForm.openModal()"><i class="fas fa-plus"></i> Create Department</button>
+      <app-create-department-form #createForm></app-create-department-form>
     </div>
+
     <ag-grid-angular
     style="width: 100%; height: 500px;"
     class="ag-theme-alpine"
@@ -23,83 +31,12 @@
    [paginationPageSize]="10">
    </ag-grid-angular>
     
-
     <div class="pagination">
       <span>1/1</span>
       <button class="next-btn">Next</button>
     </div>
   </div>
-
-  <!-- Modal -->
-  <div id="departmentModal" class="modal">
-    <div class="modal-content">
-      <span class="close" id="closeModalBtn">&times;</span>
-      <h3>Create Department</h3>
-      <input type="text" id="departmentInput" placeholder="Enter department name" />
-      <button onclick="submitForm()">Submit</button>
-    </div>
-  </div>
-
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const modal = document.getElementById('departmentModal');
-      const openBtn = document.getElementById('openModalBtn');
-      const closeBtn = document.getElementById('closeModalBtn');
-      const departmentInput = document.getElementById('departmentInput');
-      const table = document.getElementById('departmentTable').getElementsByTagName('tbody')[0];
-
-      openBtn.addEventListener('click', () => {
-        departmentInput.value = '';
-        modal.classList.add('show');
-      });
-
-      closeBtn.addEventListener('click', () => {
-        modal.classList.remove('show');
-      });
-
-      window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-          modal.classList.remove('show');
-        }
-      });
-
-      window.submitForm = function () {
-        const departmentName = departmentInput.value.trim();
-        if (departmentName === '') {
-          alert('Please enter a department name');
-          return;
-        }
-
-        const rowCount = table.rows.length + 1;
-        const newRow = table.insertRow();
-        newRow.innerHTML = `
-          <td>${rowCount}</td>
-          <td>${departmentName}</td>
-          <td class="actions">
-            <button class="edit-btn" onclick="editDepartment(this)"><i class="fas fa-pen"></i> Edit</button>
-            <button class="delete-btn" onclick="deleteDepartment(this)"><i class="fas fa-trash"></i> Delete</button>
-          </td>
-        `;
-        modal.classList.remove('show');
-      };
-
-      window.editDepartment = function (button) {
-        const row = button.closest('tr');
-        const currentName = row.cells[1].innerText;
-        const newName = prompt('Edit department name:', currentName);
-        if (newName && newName.trim() !== '') {
-          row.cells[1].innerText = newName.trim();
-        }
-      };
-
-      window.deleteDepartment = function (button) {
-        const row = button.closest('tr');
-        if (confirm('Are you sure you want to delete this department?')) {
-          row.remove();
-        }
-      };
-    });
-  </script>
+  
 </body>
 </html>
  
