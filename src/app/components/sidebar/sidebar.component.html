@@ -18,13 +18,34 @@
             <h2>VMS</h2>
         </div>
         <ul class="sidebar-menu">
-            <li class="active"><a href="/dashboard"><i class="fas fa-chart-line"></i> Dashboard</a></li>
-            <li><a href="/visitorlogbook"><i class="fas fa-book"></i> Visitor’s Logbook</a></li>
-            <li><a href="/invitations"><i class="fas fa-envelope"></i> Invitations</a></li>
-            <li><a href="/employeeprofile"><i class="fas fa-user"></i> Profile</a></li>
-            <li ><a href="#" (click)="openLogoutModal($event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li class="active">
+                <a routerLink="/dashboard" routerLinkActive="active">
+                    <i class="fas fa-chart-line"></i> Dashboard
+                </a>
+            </li>
+            <li>
+                <a routerLink="/visitorlogbook" routerLinkActive="active">
+                    <i class="fas fa-book"></i> Visitor’s Logbook
+                </a>
+            </li>
+            <li>
+                <a routerLink="/invitations" routerLinkActive="active">
+                    <i class="fas fa-envelope"></i> Invitations
+                </a>
+            </li>
+            <li>
+                <a routerLink="/employeeprofile" routerLinkActive="active">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+            </li>
+            <li>
+                <a href="#" (click)="openLogoutModal($event)">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
         </ul>
     </nav>
     <app-logout #logoutModal></app-logout>
+    
 </body>
 </html>
