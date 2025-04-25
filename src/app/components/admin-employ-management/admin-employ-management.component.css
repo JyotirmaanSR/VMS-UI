@@ -1,0 +1,58 @@
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    background-color: #f5f5f5;
+  }
+
+  .container {
+    background: #fff;
+    border-radius: 20px;
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 40px auto;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    margin-left: 300px;
+    margin-top: 100px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .top-bar button {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+   /* AG Grid Overrides */
+.ag-theme-alpine {
+  --ag-header-background-color: #f5f5f5;
+  --ag-row-hover-color: #eef;
+  --ag-odd-row-background-color: #fff;
+  --ag-font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --ag-font-size: 14px;
+  border-radius: 8px;
+  border: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+.ag-theme-alpine .ag-header-cell-label {
+  font-weight: 600;
+  color: #333;
+}
+.ag-theme-alpine .ag-cell {
+  padding: 10px;
+}

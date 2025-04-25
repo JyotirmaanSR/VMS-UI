@@ -50,7 +50,7 @@ import { CreateEmployeeFormComponent } from './components/create-employee-form/c
     ReceptionistsSidebarComponent,
     ReceptionistsHeaderComponent,
     AddVisitorFormComponent,
-    ReceptionistsHeaderComponent
+    ReceptionistsHeaderComponent,
     ReceptionistsHeaderComponent,
     CreateDepartmentFormComponent,
     CreateEmployeeFormComponent

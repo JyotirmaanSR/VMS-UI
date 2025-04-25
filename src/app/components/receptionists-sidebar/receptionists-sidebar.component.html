@@ -18,11 +18,24 @@
             <h2>VMS</h2>
         </div>
         <ul class="sidebar-menu">
-            <li class="active"><a href="/receptiondashboard"><i class="fas fa-chart-line"></i>Reception Dashboard</a></li>
-            <li><a href="/receptionprofile"><i class="fas fa-user"></i> Profile</a></li>
-            <li ><a href="#" (click)="openLogoutModal($event)"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            <li routerLinkActive="active">
+                <a routerLink="/receptiondashboard">
+                    <i class="fas fa-chart-line"></i> Reception Dashboard
+                </a>
+            </li>
+            <li routerLinkActive="active">
+                <a routerLink="/receptionprofile">
+                    <i class="fas fa-user"></i> Profile
+                </a>
+            </li>
+            <li>
+                <a href="#" (click)="openLogoutModal($event)">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </li>
         </ul>
     </nav>
     <app-logout #logoutModal></app-logout>
+    
 </body>
 </html>
