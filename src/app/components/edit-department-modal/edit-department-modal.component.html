@@ -1,0 +1,14 @@
+<div *ngIf="isVisible" class="modal-backdrop">
+    <div class="modal-content">
+      <h5>Edit Department</h5>
+      <div class="form-group">
+        <label>Department Name</label>
+        <input type="text" [(ngModel)]="departmentName" class="form-control" />
+      </div>
+      <div class="d-flex justify-content-end mt-3">
+        <button class="btn btn-secondary mr-2" (click)="closeModal()">Cancel</button>
+        <button class="btn btn-primary" (click)="saveChanges()">Save</button>
+      </div>
+    </div>
+  </div>
+  

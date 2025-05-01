@@ -34,18 +34,16 @@
         <div class="profile-details">
           <div class="detail-row"><label>Email</label><span>{{ profile.email }}</span></div>
           <div class="detail-row"><label>Phone</label><span>{{ profile.phone }}</span></div>
-          <div class="detail-row"><label>Address</label><span>{{ profile.address }}</span></div>
           <div class="detail-row"><label>Employer ID</label><span><strong>{{ profile.employerId }}</strong></span></div>
           <div class="detail-row"><label>Password</label><span>🔒 {{ profile.password }}</span></div>
           <div class="detail-row"><label>Department</label><span>{{ profile.department }}</span></div>
-          <div class="detail-row"><label>D.O.B</label><span>{{ profile.dob }}</span></div>
-          <div class="detail-row"><label>Gender</label><span>{{ profile.gender }}</span></div>
+          
         </div>
       
         <!-- Edit Modal -->
-        <div class="modal" *ngIf="isEditModalOpen">
+        <!-- <div class="modal" *ngIf="isEditModalOpen">
           <div class="modal-content">
-            <h3>Edit Profile</h3>
+            <h3>Edit Profile</h3> 
       
             <div class="modal-photo">
               <img [src]="editProfile.photo" class="profile-photo" />
@@ -73,8 +71,16 @@
               <button (click)="cancelEdit()" class="waves-effect waves-light btn">Cancel</button>
             </div>
           </div>
-        </div>
+        </div> -->
       </div>
+
+      <ng-template #loadingTemplate>
+        <div class="text-center mt-5">
+          <div class="spinner-border text-primary" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </ng-template>
       
 </body>
 </html>

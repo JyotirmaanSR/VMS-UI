@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
+import { DepartmentActionRendererComponent } from '../department-action-renderer/department-action-renderer.component';
+import { EditDepartmentModalComponent } from '../edit-department-modal/edit-department-modal.component';
+import { DeleteDepartmentModalComponent } from '../delete-department-modal/delete-department-modal.component';
 
 @Component({
   selector: 'app-department-management',
@@ -6,61 +9,92 @@ import { Component } from '@angular/core';
   styleUrls: ['./department-management.component.css']
 })
 export class DepartmentManagementComponent {
-  columnDefs =  [
-    { field: 'name', headerName: 'Name', sortable: true, filter: true },
-    { field: 'id', headerName: 'ID', sortable: true, filter: true},
-    { field: 'email', headerName: 'Email', sortable: true, filter: true},
-    { field: 'dueDate', headerName: 'Due Date', sortable: true, filter: true}
-  ]; 
+  @ViewChild(EditDepartmentModalComponent) editModal!: EditDepartmentModalComponent;
+
+    handleEdit(row: any) {
+      this.editModal.openModal(row.departmentId, row.departmentName);
+    }
+
+    handleUpdateDepartment(updated: { departmentId: string; departmentName: string }) {
+    const index = this.rowData.findIndex(d => d.departmentId === updated.departmentId);
+    if (index !== -1) {
+    this.rowData[index].departmentName = updated.departmentName;
+    this.rowData = [...this.rowData]; // Trigger AG Grid refresh
+  }
+}
+
+  @ViewChild(DeleteDepartmentModalComponent) deleteModal!: DeleteDepartmentModalComponent;
+
+  handleDelete(row: any) {
+    this.deleteModal.openModal(row.departmentId, row.departmentName);
+  }
+  
+  handleConfirmDelete(departmentId: string) {
+    this.rowData = this.rowData.filter(dept => dept.departmentId !== departmentId);
+  }
+  
+
+
+columnDefs = [
+  { field: 'departmentName', headerName: 'Department Name', sortable: true, filter: true },
+  { field: 'departmentId', headerName: 'Department ID', sortable: true, filter: true },
+  {
+    headerName: 'Actions',
+    cellRenderer: 'departmentActionRenderer',
+    cellRendererParams: {
+      onEdit: this.handleEdit.bind(this),
+      onDelete: this.handleDelete.bind(this)
+    },
+    suppressSorting: true,
+    suppressMenu: true,
+    width: 120
+  }
+];
+
+  frameworkComponents = {
+    departmentActionRenderer: DepartmentActionRendererComponent
+  };
+  
 
   rowData = [
     {
-      name: 'John Mathew',
-      id: 'AD20152',
-      email: 'johnmathew@gmail.com',
-      dueDate: '14:00 02/21',
+      departmentName: 'John Mathew',
+      departmentId: '373438',
     },
     {
-      name: 'Anita George',
-      id: 'AD20153',
-      email: 'anita.george@example.com',
-      dueDate: '09:30 02/22',
+      departmentName: 'Anita George',
+      departmentId: 'AD20153',
+      
     },
     {
-      name: 'Samuel Dsouza',
-      id: 'AD20154',
-      email: 'samuel.dsouza@example.com',
-      dueDate: '11:45 02/23',
+      departmentName: 'Samuel Dsouza',
+      departmentId: 'AD20154',
+     
     },
     {
-      name: 'Priya Verma',
-      id: 'AD20155',
-      email: 'priya.verma@example.com',
-      dueDate: '16:10 02/23',
+      departmentName: 'Priya Verma',
+      departmentId: 'AD20155',
+      
     },
     {
-      name: 'Michael Tan',
-      id: 'AD20156',
-      email: 'michael.tan@example.com',
-      dueDate: '13:20 02/24',
+      departmentName: 'Michael Tan',
+      departmentId: 'AD20156',
+    
     },
     {
-      name: 'Sara Lee',
-      id: 'AD20157',
-      email: 'sara.lee@example.com',
-      dueDate: '10:15 02/24',
+      departmentName: 'Sara Lee',
+      departmentId: 'AD20157',
+     
     },
     {
-      name: 'Ravi Kumar',
-      id: 'AD20158',
-      email: 'ravi.kumar@example.com',
-      dueDate: '12:00 02/25',
+      departmentName: 'Ravi Kumar',
+      departmentId: 'AD20158',
+     
     },
     {
-      name: 'Lina Gomez',
-      id: 'AD20159',
-      email: 'lina.gomez@example.com',
-      dueDate: '15:30 02/25',
+      departmentName: 'Lina Gomez',
+      departmentId: 'AD20159',
+    
     }
   ]; 
 

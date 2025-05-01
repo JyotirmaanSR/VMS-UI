@@ -25,6 +25,9 @@ import { ReceptionistsHeaderComponent } from './components/receptionists-header/
 import { AddVisitorFormComponent } from './components/add-visitor-form/add-visitor-form.component';
 import { CreateDepartmentFormComponent } from './components/create-department-form/create-department-form.component';
 import { CreateEmployeeFormComponent } from './components/create-employee-form/create-employee-form.component';
+import { DepartmentActionRendererComponent } from './components/department-action-renderer/department-action-renderer.component';
+import { EditDepartmentModalComponent } from './components/edit-department-modal/edit-department-modal.component';
+import { DeleteDepartmentModalComponent } from './components/delete-department-modal/delete-department-modal.component';
 
 
 
@@ -53,7 +56,10 @@ import { CreateEmployeeFormComponent } from './components/create-employee-form/c
     ReceptionistsHeaderComponent,
     ReceptionistsHeaderComponent,
     CreateDepartmentFormComponent,
-    CreateEmployeeFormComponent
+    CreateEmployeeFormComponent,
+    DepartmentActionRendererComponent,
+    EditDepartmentModalComponent,
+    DeleteDepartmentModalComponent
   ],
   imports: [
     BrowserModule,

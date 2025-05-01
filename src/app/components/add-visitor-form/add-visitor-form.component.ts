@@ -14,7 +14,7 @@ export class AddVisitorFormComponent {
     'David Brown'
   ];
   
-  isFormVisible = false; // Modal visibility flag
+  isFormVisible = false;
 
   formData = {
     name: '',
@@ -24,7 +24,7 @@ export class AddVisitorFormComponent {
     employee: ''
   };
 
-  // Show modal form
+  
   showForm() {
     this.isFormVisible = true;
   }

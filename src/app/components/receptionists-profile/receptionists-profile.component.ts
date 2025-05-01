@@ -23,37 +23,37 @@ export class ReceptionistsProfileComponent {
  };
 
  // Edit Modal State
- isEditModalOpen = false;
+//  isEditModalOpen = false;
 
  // Temporary values for editing
- editProfile: any = {};
+//  editProfile: any = {};
 
  // Open modal with current profile data
- openEditModal() {
-   this.isEditModalOpen = true;
-   this.editProfile = { ...this.profile };
- }
+//  openEditModal() {
+//    this.isEditModalOpen = true;
+//    this.editProfile = { ...this.profile };
+//  }
 
  // Save changes and close modal
- saveChanges() {
-   this.profile = { ...this.editProfile };
-   this.isEditModalOpen = false;
- }
+//  saveChanges() {
+//    this.profile = { ...this.editProfile };
+//    this.isEditModalOpen = false;
+//  }
 
  // Close modal without saving
- cancelEdit() {
-   this.isEditModalOpen = false;
- }
+//  cancelEdit() {
+//    this.isEditModalOpen = false;
+//  }
 
  // Handle profile photo change
- onPhotoChange(event: any) {
-   const file = event.target.files[0];
-   if (file) {
-     const reader = new FileReader();
-     reader.onload = e => {
-       this.editProfile.photo = e.target?.result as string;
-     };
-     reader.readAsDataURL(file);
-   }
- }
+//  onPhotoChange(event: any) {
+//    const file = event.target.files[0];
+//    if (file) {
+//      const reader = new FileReader();
+//      reader.onload = e => {
+//        this.editProfile.photo = e.target?.result as string;
+//      };
+//      reader.readAsDataURL(file);
+//    }
+//  }
 }

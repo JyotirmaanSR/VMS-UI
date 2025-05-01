@@ -6,63 +6,65 @@ import { Component } from '@angular/core';
   styleUrls: ['./admin-dashboard.component.css']
 })
 export class AdminDashboardComponent {
-  columnDefs =  [
+  columnDefs = [
     { field: 'name', headerName: 'Name', sortable: true, filter: true },
-    { field: 'id', headerName: 'ID', sortable: true, filter: true},
-    { field: 'email', headerName: 'Email', sortable: true, filter: true},
-    { field: 'dueDate', headerName: 'Due Date', sortable: true, filter: true}
-  ]; 
+    { field: 'phone', headerName: 'Phone', sortable: true, filter: true },
+    { field: 'email', headerName: 'Email', sortable: true, filter: true },
+    { field: 'purpose', headerName: 'Purpose', sortable: true, filter: true }
+  ];
+  
 
   rowData = [
     {
       name: 'John Mathew',
-      id: 'AD20152',
+      phone: '9876543210',
       email: 'johnmathew@gmail.com',
-      dueDate: '14:00 02/21',
+      purpose: 'Business Meeting'
     },
     {
       name: 'Anita George',
-      id: 'AD20153',
+      phone: '9812345678',
       email: 'anita.george@example.com',
-      dueDate: '09:30 02/22',
+      purpose: 'Client Discussion'
     },
     {
       name: 'Samuel Dsouza',
-      id: 'AD20154',
+      phone: '9123456789',
       email: 'samuel.dsouza@example.com',
-      dueDate: '11:45 02/23',
+      purpose: 'Interview'
     },
     {
       name: 'Priya Verma',
-      id: 'AD20155',
+      phone: '9988776655',
       email: 'priya.verma@example.com',
-      dueDate: '16:10 02/23',
+      purpose: 'Technical Demo'
     },
     {
       name: 'Michael Tan',
-      id: 'AD20156',
+      phone: '9900112233',
       email: 'michael.tan@example.com',
-      dueDate: '13:20 02/24',
+      purpose: 'Sales Pitch'
     },
     {
       name: 'Sara Lee',
-      id: 'AD20157',
+      phone: '9876512345',
       email: 'sara.lee@example.com',
-      dueDate: '10:15 02/24',
+      purpose: 'Vendor Meeting'
     },
     {
       name: 'Ravi Kumar',
-      id: 'AD20158',
+      phone: '9123987654',
       email: 'ravi.kumar@example.com',
-      dueDate: '12:00 02/25',
+      purpose: 'Consultation'
     },
     {
       name: 'Lina Gomez',
-      id: 'AD20159',
+      phone: '9090909090',
       email: 'lina.gomez@example.com',
-      dueDate: '15:30 02/25',
+      purpose: 'Review Session'
     }
-  ]; 
+  ];
+  
 
 
 }

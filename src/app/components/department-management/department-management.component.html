@@ -23,13 +23,18 @@
     </div>
 
     <ag-grid-angular
-    style="width: 100%; height: 500px;"
-    class="ag-theme-alpine"
-    [rowData]="rowData"
-   [columnDefs]="columnDefs"
-   [pagination]="true"
-   [paginationPageSize]="10">
-   </ag-grid-angular>
+  style="width: 100%; height: 500px;"
+  class="ag-theme-alpine"
+  [rowData]="rowData"
+  [columnDefs]="columnDefs"
+  [frameworkComponents]="frameworkComponents"
+  [pagination]="true"
+  [paginationPageSize]="10">
+  </ag-grid-angular>
+  <app-edit-department-modal (departmentUpdated)="handleUpdateDepartment($event)"></app-edit-department-modal>
+  <app-delete-department-modal (departmentDeleted)="handleConfirmDelete($event)"></app-delete-department-modal>
+
+
     
     <div class="pagination">
       <span>1/1</span>

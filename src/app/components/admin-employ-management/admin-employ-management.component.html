@@ -6,26 +6,58 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
 <body>
-<app-admin-header></app-admin-header>
-<app-admin-sidebar></app-admin-sidebar>
-<div class="container">
-  <div class="top-bar">
-    <h2>Employee's</h2>
-    <button class="create-emp-btn" (click)="openForm()"><i class="fas fa-plus"></i> Create Employee</button>
-  </div>
-  <ag-grid-angular
-  style="width: 100%; height: 500px;"
-  class="ag-theme-alpine"
-  [rowData]="rowData"
- [columnDefs]="columnDefs"
- [pagination]="true"
- [paginationPageSize]="10">
- </ag-grid-angular>
+  <app-admin-header></app-admin-header>
+  <app-admin-sidebar></app-admin-sidebar>
+  <div class="container">
+    <div class="top-bar">
+      <h2>Employee's</h2>
+      <button class="create-emp-btn" (click)="openForm()"><i class="fas fa-plus"></i> Create Employee</button>
+    </div>
+  
+    <ag-grid-angular
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [pagination]="true"
+      [paginationPageSize]="10">
+    </ag-grid-angular>
+  
+    <app-create-employee-form 
+      [isVisible]="showForm"
+      (onClose)="closeForm()">
+    </app-create-employee-form>
+  
+    <!-- Edit Modal -->
+    <div *ngIf="showEditModal" class="modal-backdrop">
+      <div class="modal-content">
+        <h4>Edit Employee</h4>
+        <input type="text" [(ngModel)]="editData.name" placeholder="Employee Name" class="form-control" />
+        <input type="text" [(ngModel)]="editData.email" placeholder="Email" class="form-control" />
+        <input type="text" [(ngModel)]="editData.phone" placeholder="Phone" class="form-control" />
+        <input type="text" [(ngModel)]="editData.department" placeholder="Department" class="form-control" />
 
- <app-create-employee-form 
-  [isVisible]="showForm"
-  (onClose)="closeForm()">
-</app-create-employee-form>
-</div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="showEditModal = false">Cancel</button>
+          <button class="btn btn-primary" (click)="onEditSubmit()">Save</button>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- Delete Modal -->
+    <div class="modal-backdrop" *ngIf="showDeleteModal">
+      <div class="modal-content">
+        <h4>Confirm Deletion</h4>
+        <p>Are you sure you want to delete <strong>{{ selectedEmployee?.name }}</strong>?</p>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" (click)="closeDeleteModal()">Cancel</button>
+          <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  
 </body>
 </html>
