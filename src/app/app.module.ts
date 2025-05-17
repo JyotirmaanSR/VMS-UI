@@ -11,7 +11,7 @@ import { EmployeeVisitorsLogbookComponent } from './components/employee-visitors
 import { DepartmentManagementComponent } from './components/department-management/department-management.component';
 import { AdminHeaderComponent } from './components/admin-header/admin-header.component';
 import { AdminSidebarComponent } from './components/admin-sidebar/admin-sidebar.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminDashboardComponent } from './components/admin-dashboard/admin-dashboard.component';
 import { AdminEmployManagementComponent } from './components/admin-employ-management/admin-employ-management.component';
 import { ReportGeneraterComponent } from './components/report-generater/report-generater.component';
@@ -28,6 +28,8 @@ import { CreateEmployeeFormComponent } from './components/create-employee-form/c
 import { DepartmentActionRendererComponent } from './components/department-action-renderer/department-action-renderer.component';
 import { EditDepartmentModalComponent } from './components/edit-department-modal/edit-department-modal.component';
 import { DeleteDepartmentModalComponent } from './components/delete-department-modal/delete-department-modal.component';
+import { ApiService } from './services/api.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 
 
@@ -65,9 +67,11 @@ import { DeleteDepartmentModalComponent } from './components/delete-department-m
     BrowserModule,
     AppRoutingModule,
     AgGridModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ApiService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -12,38 +12,47 @@
 </head>
 <body>
     <div class="container">
-        <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 20px;">Sign In</h2>
-        <p style="color: rgb(151, 151, 151); font-size: 18px; font-weight: 600; margin-bottom: 40px;">Enter your <a style="color: rgb(151, 151, 151); text-decoration: underline;">username</a> and <a style="color: rgb(151, 151, 151); text-decoration: underline;">password</a></p>
-        <div class="form-box">
-            <form (ngSubmit)="onLogin()">
-                <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
-                    <span class="icon" style="margin-left: 25px;"><i class="fas fa-user"></i></span>
-                    <input type="text" placeholder="Username" [(ngModel)]="username" name="username" style="padding: 5px; margin-left: 15px;" required />
-                </div>
+  <h2 style="font-size: 28px; font-weight: 600; margin-bottom: 20px;">Sign In</h2>
+  <p style="color: rgb(151, 151, 151); font-size: 18px; font-weight: 600; margin-bottom: 40px;">
+    Enter your <a style="color: rgb(151, 151, 151); text-decoration: underline;">username</a> and
+    <a style="color: rgb(151, 151, 151); text-decoration: underline;">password</a>
+  </p>
 
-                <div class="input-group" style="margin-bottom: 20px;">
-                    <span class="icon" style="margin-left: 25px;"><i class="fa fa-envelope"></i></span>
-                    <input type="password" placeholder="Password" [(ngModel)]="password" name="password" style="padding: 5px; margin-left: 15px;" required />
-                </div>
+  <div class="form-box">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()" method="post">
+      <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
+        <span class="icon" style="margin-left: 25px;"><i class="fas fa-user"></i></span>
+        <input type="text" formControlName="username" placeholder="Username"
+          style="padding: 5px; margin-left: 15px;" required />
+      </div>
 
-                <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
-                    <span class="icon" style="margin-left: 25px;"><i class="fa fa-user-tag"></i></span>
-                    <select [(ngModel)]="selectedRole" name="role" style="padding: 5px; margin-left: 15px; border: none; background: transparent; outline: none; flex: 1;" required>
-                        <option value="admin">Admin</option>
-                        <option value="employee">Employee</option>
-                        <option value="reception">Receptionist</option>
-                      </select>
-                </div>
+      <div class="input-group" style="margin-bottom: 20px;">
+        <span class="icon" style="margin-left: 25px;"><i class="fa fa-envelope"></i></span>
+        <input type="password" formControlName="password" placeholder="Password"
+          style="padding: 5px; margin-left: 15px;" required />
+      </div>
 
-                <div class="remember-me" style="margin-bottom: 40px;">
-                    <input type="checkbox" id="remember">
-                    <label for="remember" style="margin-top: 7px;">Remember my password</label>
-                </div>
-                <button type="submit">Login</button>
-                <a href="#" class="forgot-password">Forgot Password?</a>
-            </form>
-        </div>
-    </div>
+      <div class="input-group" style="margin-bottom: 20px; margin-top: 20px;">
+        <span class="icon" style="margin-left: 25px;"><i class="fa fa-user-tag"></i></span>
+        <select formControlName="role" required style="margin-left: 15px;">
+          <option value="">Select Role</option>
+          <option *ngFor="let role of role_data" [value]="role.role_id">{{ role.role_name }}</option>
+        </select>
+      </div>
+
+      <div class="remember-me" style="margin-bottom: 40px;">
+        <input type="checkbox" id="remember">
+        <label for="remember" style="margin-top: 7px;">Remember my password</label>
+      </div>
+
+      <div *ngIf="loginError" style="color: red; margin-bottom: 15px;">{{ loginError }}</div>
+
+      <button type="submit">Login</button>
+      <a href="#" class="forgot-password">Forgot Password?</a>
+    </form>
+  </div>
+</div>
+
 
 </body>
 </html>

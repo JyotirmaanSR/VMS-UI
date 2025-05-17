@@ -1,40 +1,53 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { ApiService } from 'src/app/services/api.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login-form',
   templateUrl: './login-form.component.html',
   styleUrls: ['./login-form.component.css']
 })
-export class LoginFormComponent {
-  username = '';
-  password = '';
-  selectedRole = '';
+export class LoginFormComponent implements OnInit {
+  loginForm: FormGroup;
   loginError = '';
+  role_data: any[] = [];
 
-  constructor(private router: Router, private http: HttpClient) {}
+
+  constructor(
+    private router: Router,
+     private http: HttpClient,
+     private fb: FormBuilder,
+      private service: ApiService
+    ) {
+      this.loginForm = this.fb.group({
+      username: ['', Validators.required],
+      password: ['', Validators.required],
+      role: ['', Validators.required]
+    });
+  }
+
+    ngOnInit() {
+    this.getrole();
+  }
 
   onLogin() {
-    // Clear previous error
     this.loginError = '';
 
-    if (!this.username || !this.password || !this.selectedRole) {
+    if (this.loginForm.invalid) {
       this.loginError = 'All fields are required.';
       return;
     }
 
-    const loginData = {
-      username: this.username,
-      password: this.password,
-      role: this.selectedRole
-    };
+    const loginData = this.loginForm.value;
 
-    this.http.post<any>('http://localhost:8080/vms/index.php/LoginController/login_user', loginData)
+    this.service.post(' /LoginController/login_user', loginData)
       .subscribe({
-        next: (res) => {
-          if (res.status) {
-            const role = res.data.role.toLowerCase();
+        next: (res:any) => {
+          if (res.status == 'success') {
+            alert(" Login Successful ! ")
+            const role = res.data.role.toLowerCase();  
             switch (role) {
               case 'admin':
                 this.router.navigate(['/admin-dashboard']);
@@ -58,4 +71,23 @@ export class LoginFormComponent {
         }
       });
   }
+
+    
+
+    getrole() {
+    this.service.post('LoginController/fetch_all_roles', {})
+      .subscribe({
+        next: (res: any) => {
+          if (res.status === 'success') {
+            this.role_data = res.data;
+          } else {
+            alert(res.data);
+          }
+        },
+        error: (err) => {
+          console.error('Error fetching roles', err);
+        }
+      });
+  }
+
 }
