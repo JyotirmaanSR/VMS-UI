@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -17,6 +17,7 @@ export class ApiService {
         params: new HttpParams(),
       };
     }
+
     if (params) {
       reqOpts.params = new HttpParams();
       for (let k in params) {
@@ -27,5 +28,22 @@ export class ApiService {
     }
 
     return this.httpClient.post(this.url + endpoint, body, reqOpts);
+  }
+
+
+  /**
+   * Update department by dept_id and name
+   */
+  updateDepartment(departmentId: string, departmentName: string): Observable<any> {
+    return this.httpClient.post(`${this.url}DepartmentController/update_department`, {
+      dept_id: departmentId,
+      name: departmentName
+    });
+  }
+
+  deleteDepartment(departmentId: string): Observable<any> {
+    return this.httpClient.post(`${this.url}DepartmentController/delete_department`, {
+      dept_id: departmentId
+    });
   }
 }

@@ -14,47 +14,66 @@
       <button class="create-emp-btn" (click)="openForm()"><i class="fas fa-plus"></i> Create Employee</button>
     </div>
   
-    <ag-grid-angular
-      style="width: 100%; height: 500px;"
-      class="ag-theme-alpine"
-      [rowData]="rowData"
-      [columnDefs]="columnDefs"
-      [pagination]="true"
-      [paginationPageSize]="10">
-    </ag-grid-angular>
-  
-    <app-create-employee-form 
-      [isVisible]="showForm"
-      (onClose)="closeForm()">
-    </app-create-employee-form>
-  
-    <!-- Edit Modal -->
-    <div *ngIf="showEditModal" class="modal-backdrop">
-      <div class="modal-content">
-        <h4>Edit Employee</h4>
-        <input type="text" [(ngModel)]="editData.name" placeholder="Employee Name" class="form-control" />
-        <input type="text" [(ngModel)]="editData.email" placeholder="Email" class="form-control" />
-        <input type="text" [(ngModel)]="editData.phone" placeholder="Phone" class="form-control" />
-        <input type="text" [(ngModel)]="editData.department" placeholder="Department" class="form-control" />
-        <div class="modal-footer">
-          <button class="btn btn-secondary" (click)="showEditModal = false">Cancel</button>
-          <button class="btn btn-primary" (click)="onEditSubmit()">Save</button>
+    <div class="admin-employ-container">
+  <h2>Employee Management</h2>
+
+  <!-- AG Grid Table -->
+  <ag-grid-angular
+    class="ag-theme-alpine"
+    style="width: 100%; height: 500px;"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [frameworkComponents]="frameworkComponents"
+    rowSelection="single"
+    domLayout="autoHeight">
+  </ag-grid-angular>
+
+  <!-- ======= EDIT EMPLOYEE MODAL ======= -->
+  <div *ngIf="showEditModal" class="modal-backdrop">
+    <div class="modal-content">
+      <h3>Edit Employee</h3>
+      <form (ngSubmit)="saveEditedEmployee()">
+        <div class="form-group">
+          <label>Employee ID</label>
+          <input type="text" [value]="editData?.id" disabled class="form-control" />
         </div>
+        <div class="form-group">
+          <label>Name</label>
+          <input type="text" [(ngModel)]="editData.name" name="name" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" [(ngModel)]="editData.email" name="email" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="text" [(ngModel)]="editData.phone" name="phone" class="form-control" required />
+        </div>
+        <div class="form-group">
+          <label>Department</label>
+          <input type="text" [(ngModel)]="editData.department" name="department" class="form-control" required />
+        </div>
+        <div class="modal-actions">
+          <button type="submit" class="btn btn-primary">Save</button>
+          <button type="button" class="btn btn-secondary" (click)="closeEditModal()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ======= DELETE CONFIRMATION MODAL ======= -->
+  <div *ngIf="showDeleteModal" class="modal-backdrop">
+    <div class="modal-content">
+      <h3>Confirm Deletion</h3>
+      <p>Are you sure you want to delete employee <strong>{{ deleteData?.name }}</strong>?</p>
+      <div class="modal-actions">
+        <button class="btn btn-danger" (click)="confirmDelete()">Yes</button>
+        <button class="btn btn-secondary" (click)="closeDeleteModal()">Cancel</button>
       </div>
     </div>
+  </div>
+</div>
 
-
-    <!-- Delete Modal -->
-    <div class="modal-backdrop" *ngIf="showDeleteModal">
-      <div class="modal-content">
-        <h4>Confirm Deletion</h4>
-        <p>Are you sure you want to delete <strong>{{ selectedEmployee?.name }}</strong>?</p>
-        <div class="modal-footer">
-          <button class="btn btn-secondary" (click)="closeDeleteModal()">Cancel</button>
-          <button class="btn btn-danger" (click)="confirmDelete()">Delete</button>
-        </div>
-      </div>
-    </div>
   </div>
   
 </body>

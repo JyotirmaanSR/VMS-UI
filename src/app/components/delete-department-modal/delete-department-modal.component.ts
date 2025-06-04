@@ -1,20 +1,22 @@
 import { Component, EventEmitter, Output } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-delete-department-modal',
-  templateUrl: './delete-department-modal.component.html',
-  styleUrls: ['./delete-department-modal.component.css']
+  templateUrl: './delete-department-modal.component.html'
 })
 export class DeleteDepartmentModalComponent {
+  departmentId!: string;
+  departmentName!: string;
   isVisible = false;
-  departmentId = '';
-  departmentName = '';
 
   @Output() departmentDeleted = new EventEmitter<string>();
 
-  openModal(departmentId: string, departmentName: string) {
-    this.departmentId = departmentId;
-    this.departmentName = departmentName;
+  constructor(private apiService: ApiService) {}
+
+  openModal(deptId: string, deptName: string) {
+    this.departmentId = deptId;
+    this.departmentName = deptName;
     this.isVisible = true;
   }
 
@@ -23,7 +25,19 @@ export class DeleteDepartmentModalComponent {
   }
 
   confirmDelete() {
-    this.departmentDeleted.emit(this.departmentId);
-    this.closeModal();
-  }
+  const body = { departmentId: this.departmentId };
+
+  this.apiService.post('DepartmentController/delete_department', body).subscribe(
+    (res) => {
+      if (res.status === 'success') {
+        this.departmentDeleted.emit(this.departmentId);
+      }
+      this.closeModal();
+    },
+    (error) => {
+      console.error('Error deleting department', error);
+      this.closeModal();
+    }
+  );
+}
 }

@@ -1,47 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Departments</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
 <app-admin-header></app-admin-header>
 <app-admin-sidebar></app-admin-sidebar>
-<body>
-  <div class="card">
-    <div class="card-header">
-      <h2>Departments</h2>
-      <button class="create-btn" (click)="createForm.openModal()"><i class="fas fa-plus"></i> Create Department</button>
-      <app-create-department-form #createForm></app-create-department-form>
-    </div>
 
+<div class="card">
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h2 class="mb-0">Departments</h2>
+    <button class="btn btn-success" (click)="createForm.openModal()">
+      <i class="fas fa-plus"></i> Create Department
+    </button>
+    <app-create-department-form #createForm></app-create-department-form>
+  </div>
+
+  <div class="card-body">
     <ag-grid-angular
-  style="width: 100%; height: 500px;"
-  class="ag-theme-alpine"
-  [rowData]="rowData"
-  [columnDefs]="columnDefs"
-  [frameworkComponents]="frameworkComponents"
-  [pagination]="true"
-  [paginationPageSize]="10">
-  </ag-grid-angular>
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [frameworkComponents]="frameworkComponents"
+      [pagination]="true"
+      [paginationPageSize]="10"
+      (gridReady)="onGridReady($event)"
+      [getRowId]="getRowId.bind(this)">
+    </ag-grid-angular>
+  </div>
+
   <app-edit-department-modal (departmentUpdated)="handleUpdateDepartment($event)"></app-edit-department-modal>
   <app-delete-department-modal (departmentDeleted)="handleConfirmDelete($event)"></app-delete-department-modal>
-
-
-    
-    <div class="pagination">
-      <span>1/1</span>
-      <button class="next-btn">Next</button>
-    </div>
-  </div>
-  
-</body>
-</html>
- 
+</div>

@@ -13,81 +13,98 @@ export class LoginFormComponent implements OnInit {
   loginForm: FormGroup;
   loginError = '';
   role_data: any[] = [];
-
+  submitted = false;
 
   constructor(
     private router: Router,
-     private http: HttpClient,
-     private fb: FormBuilder,
-      private service: ApiService
-    ) {
-      this.loginForm = this.fb.group({
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private service: ApiService
+  ) {
+    this.loginForm = this.fb.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
       role: ['', Validators.required]
     });
   }
 
-    ngOnInit() {
+  ngOnInit() {
     this.getrole();
   }
 
   onLogin() {
-    this.loginError = '';
+    this.submitted = true;
 
     if (this.loginForm.invalid) {
-      this.loginError = 'All fields are required.';
+      alert('All fields are required.');
       return;
     }
 
-    const loginData = this.loginForm.value;
+    const loginData = {
+      username: this.loginForm.value.username,
+      password: this.loginForm.value.password,
+      role_id: this.loginForm.value.role
+    };
 
-    this.service.post(' /LoginController/login_user', loginData)
-      .subscribe({
-        next: (res:any) => {
-          if (res.status == 'success') {
-            alert(" Login Successful ! ")
-            const role = res.data.role.toLowerCase();  
-            switch (role) {
-              case 'admin':
-                this.router.navigate(['/admin-dashboard']);
-                break;
-              case 'employee':
-                this.router.navigate(['/dashboard']);
-                break;
-              case 'reception':
-                this.router.navigate(['/receptiondashboard']);
-                break;
-              default:
-                this.loginError = 'Invalid role detected from server.';
-            }
-          } else {
-            this.loginError = res.data || 'Login failed.';
+    this.service.post('/LoginController/login_user', loginData).subscribe({
+      next: (res: any) => {
+        if (res.status === 'success') {
+          const user = res.data;
+          const role = user.role?.toLowerCase();
+
+          // Save user details to localStorage
+          localStorage.setItem('role', role);
+          localStorage.setItem('emp_id', user.emp_id);
+          localStorage.setItem('name', user.name);
+
+          alert('Login Successful!');
+
+          // Navigate based on role
+          switch (role) {
+            case 'admin':
+              this.router.navigate(['/admin-dashboard']);
+              break;
+            case 'receptionist':
+              this.router.navigate(['/receptiondashboard']);
+              break;
+            case 'employee':
+              this.router.navigate(['/dashboard']);
+              break;
+            case 'security':
+              this.router.navigate(['/security']);
+              break;
+            default:
+              alert('Invalid role received from server.');
+              break;
           }
-        },
-        error: (err) => {
-          console.error('Login API error:', err);
-          this.loginError = 'Server error occurred. Please try again later.';
+        } else {
+          alert(res.data || 'Login failed.');
         }
-      });
+      },
+      error: (err) => {
+        console.error('Login API error:', err);
+        alert('Server error occurred. Please try again later.');
+      }
+    });
   }
 
-    
-
-    getrole() {
-    this.service.post('LoginController/fetch_all_roles', {})
-      .subscribe({
-        next: (res: any) => {
-          if (res.status === 'success') {
-            this.role_data = res.data;
-          } else {
-            alert(res.data);
-          }
-        },
-        error: (err) => {
-          console.error('Error fetching roles', err);
-        }
-      });
+  get f() {
+    return this.loginForm.controls;
   }
 
+  getrole() {
+    this.service.post('LoginController/fetch_all_roles', {}).subscribe({
+      next: (res: any) => {
+        if (res.status === 'success') {
+          this.role_data = res.data;
+        } else {
+          alert(res.data || 'Failed to fetch roles.');
+        }
+      },
+      error: (err) => {
+        console.error('Error fetching roles', err);
+        alert('Could not fetch roles from the server.');
+      }
+    });
+  }
 }

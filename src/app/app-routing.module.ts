@@ -70,7 +70,7 @@ const routes: Routes = [
   // admin routing
  
  {
-  path:'admin-dashboard',
+  path:'',
   component:AdminDashboardComponent
  },
 

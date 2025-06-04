@@ -1,101 +1,94 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DepartmentActionRendererComponent } from '../department-action-renderer/department-action-renderer.component';
 import { EditDepartmentModalComponent } from '../edit-department-modal/edit-department-modal.component';
 import { DeleteDepartmentModalComponent } from '../delete-department-modal/delete-department-modal.component';
+import { ApiService } from '../../services/api.service';
+import { GridReadyEvent } from 'ag-grid-community';
 
 @Component({
   selector: 'app-department-management',
   templateUrl: './department-management.component.html',
   styleUrls: ['./department-management.component.css']
 })
-export class DepartmentManagementComponent {
-  @ViewChild(EditDepartmentModalComponent) editModal!: EditDepartmentModalComponent;
-
-    handleEdit(row: any) {
-      this.editModal.openModal(row.departmentId, row.departmentName);
-    }
-
-    handleUpdateDepartment(updated: { departmentId: string; departmentName: string }) {
-    const index = this.rowData.findIndex(d => d.departmentId === updated.departmentId);
-    if (index !== -1) {
-    this.rowData[index].departmentName = updated.departmentName;
-    this.rowData = [...this.rowData]; // Trigger AG Grid refresh
-  }
+export class DepartmentManagementComponent implements OnInit {
+  onGridReady(params: any) {
+  this.gridApi = params.api;
 }
 
+getRowId(params: any) {
+  return params.data.dept_id;
+}
+
+
+  @ViewChild(EditDepartmentModalComponent) editModal!: EditDepartmentModalComponent;
   @ViewChild(DeleteDepartmentModalComponent) deleteModal!: DeleteDepartmentModalComponent;
 
-  handleDelete(row: any) {
-    this.deleteModal.openModal(row.departmentId, row.departmentName);
-  }
-  
-  handleConfirmDelete(departmentId: string) {
-    this.rowData = this.rowData.filter(dept => dept.departmentId !== departmentId);
-  }
-  
-
-
-columnDefs = [
-  { field: 'departmentName', headerName: 'Department Name', sortable: true, filter: true },
-  { field: 'departmentId', headerName: 'Department ID', sortable: true, filter: true },
-  {
-    headerName: 'Actions',
-    cellRenderer: 'departmentActionRenderer',
-    cellRendererParams: {
-      onEdit: this.handleEdit.bind(this),
-      onDelete: this.handleDelete.bind(this)
-    },
-    suppressSorting: true,
-    suppressMenu: true,
-    width: 120
-  }
-];
+  columnDefs = [
+    { field: 'name', headerName: 'Department Name', sortable: true, filter: true },
+    { field: 'dept_id', headerName: 'Department ID', sortable: true, filter: true },
+    {
+      headerName: 'Actions',
+      cellRenderer: 'departmentActionRenderer',
+      cellRendererParams: {
+        onEdit: this.handleEdit.bind(this),
+        onDelete: this.handleDelete.bind(this)
+      },
+      suppressSorting: true,
+      suppressMenu: true,
+      width: 120
+    }
+  ];
 
   frameworkComponents = {
     departmentActionRenderer: DepartmentActionRendererComponent
   };
-  
 
-  rowData = [
-    {
-      departmentName: 'John Mathew',
-      departmentId: '373438',
-    },
-    {
-      departmentName: 'Anita George',
-      departmentId: 'AD20153',
-      
-    },
-    {
-      departmentName: 'Samuel Dsouza',
-      departmentId: 'AD20154',
-     
-    },
-    {
-      departmentName: 'Priya Verma',
-      departmentId: 'AD20155',
-      
-    },
-    {
-      departmentName: 'Michael Tan',
-      departmentId: 'AD20156',
-    
-    },
-    {
-      departmentName: 'Sara Lee',
-      departmentId: 'AD20157',
-     
-    },
-    {
-      departmentName: 'Ravi Kumar',
-      departmentId: 'AD20158',
-     
-    },
-    {
-      departmentName: 'Lina Gomez',
-      departmentId: 'AD20159',
-    
-    }
-  ]; 
+  rowData: any[] = [];
+  gridApi: any;
 
-}  
+  constructor(private apiService: ApiService) {}
+
+  ngOnInit(): void {
+    this.loadDepartments();
+  }
+
+  loadDepartments(): void {
+    this.apiService.post('DepartmentController/fetch_departments', {}).subscribe(
+      res => {
+        if (res.status && res.data) {
+          this.rowData = res.data;
+        } else {
+          console.error('Failed to load departments');
+        }
+      },
+      err => {
+        console.error('Error fetching departments:', err);
+      }
+    );
+  }
+
+  handleEdit(row: any) {
+    this.editModal.openModal(row.dept_id, row.name);
+  }
+
+  handleUpdateDepartment(updated: { departmentId: string; departmentName: string }) {
+  const updatedRow = {
+    dept_id: updated.departmentId,
+    name: updated.departmentName
+  };
+  this.gridApi.applyTransaction({ update: [updatedRow] });
+  }
+
+
+  handleDelete(row: any) {
+    this.deleteModal.openModal(row.dept_id, row.name);
+  }
+
+  handleConfirmDelete(departmentId: string) {
+  const rowToRemove = this.rowData.find(dept => dept.dept_id === departmentId);
+  if (rowToRemove) {
+    this.gridApi.applyTransaction({ remove: [rowToRemove] });
+  }
+}
+
+}

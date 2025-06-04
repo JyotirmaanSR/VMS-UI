@@ -6,25 +6,31 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="modal-overlay" (click)="closeModal()" *ngIf="showForm">
-        <div class="modal-content" (click)="$event.stopPropagation()">
-          <h3>Create Department</h3>
-          <form>
-      
-            <div class="form-row">
-              <div class="form-group">
-                <label>Department Name</label>
-                <input type="text" />
-              </div>
-            </div>
-      
-            <div class="form-actions">
-              <button type="button" class="submit-btn">Submit</button>
-              <button type="button" class="cancel-btn" (click)="closeModal()">Cancel</button>
-            </div>
-          </form>
-        </div>
-      </div>
+  <div *ngIf="isModalOpen" class="modal-backdrop">
+    <div class="modal-content">
+    <h3>Create Department</h3>
+
+  <form [formGroup]="departmentForm" (ngSubmit)="submitForm()" method="post">
+    <div class="form-group">
+      <label for="name">Department Name</label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+      <!-- <div class="error" *ngIf="departmentForm.controls['name'].touched && departmentForm.controls['name'].invalid">
+        Department name is required
+      </div> -->
+    </div>
+
+    <!-- <div class="error" *ngIf="errorMsg">{{ errorMsg }}</div> -->
+    <div class="success" *ngIf="successMsg">{{ successMsg }}</div>
+
+    <div class="actions">
+      <button type="submit" class="submit-btn">Submit</button>
+      <button type="button" class="cancel-btn" (click)="departmentForm.reset()">Cancel</button>
+    </div>
+  </form>
+</div>
+</div>
+
+
       
 </body>
 </html>
